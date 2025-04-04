@@ -6,6 +6,8 @@ function resetGame() {
     corrects: 0,
     mistakes: 0,
     robotPick: {},
+    timer: 300,
+    timerInterval: null,
   });
 }
 

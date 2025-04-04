@@ -11,11 +11,9 @@ function checkUserAnswer(symbol) {
   } = useGameStore.getState();
 
   const indexOfSelectedSymbol = symbols.indexOf(symbol);
-  console.log(symbol, indexOfSelectedSymbol);
 
   // Check if user picked the banned symbol
   if (indexOfSelectedSymbol === bannedSymbolIndex) {
-    console.log("wrong pick: banned symbol");
     useGameStore.setState({ mistakes: mistakes + 1 });
     triggerWrongPickEffect();
     return;
@@ -23,7 +21,6 @@ function checkUserAnswer(symbol) {
 
   // Check if user picked the robot's choice
   if (symbol.id === robotPick.id) {
-    console.log("wrong pick: robot's choice");
     useGameStore.setState({ mistakes: mistakes + 1 });
     triggerWrongPickEffect();
     return;
@@ -36,14 +33,12 @@ function checkUserAnswer(symbol) {
 
   // If user picks the invalid right pick, it's also a wrong answer
   if (isRightPickInvalid && symbol.id === rightPick.id) {
-    console.log("wrong pick: invalid right pick");
     triggerWrongPickEffect();
     return;
   }
 
   // Check if the pick is correct
   if (!isRightPickInvalid && symbol.id === rightPick.id) {
-    console.log("correct pick");
     useGameStore.setState({ corrects: corrects + 1 });
     return;
   }
@@ -54,7 +49,6 @@ function checkUserAnswer(symbol) {
     symbol.id !== robotPick.id &&
     indexOfSelectedSymbol !== bannedSymbolIndex
   ) {
-    console.log("correct pick: right pick invalid, user picked a valid one");
     useGameStore.setState({ corrects: corrects + 1 });
     return;
   }

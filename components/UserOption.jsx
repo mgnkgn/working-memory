@@ -4,9 +4,7 @@ import { checkUserAnswer } from "../stores";
 
 const UserOption = ({ symbol, disabled = false, setRound }) => {
   const onUserChoose = (symbol) => {
-    console.log("checking answer...");
     checkUserAnswer(symbol);
-    console.log("setting new round...");
     setRound();
   };
 

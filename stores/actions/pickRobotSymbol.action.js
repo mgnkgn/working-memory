@@ -6,9 +6,6 @@ async function pickRobotSymbol() {
   const randomRightPick = symbols[Math.floor(Math.random() * symbols.length)];
   const randomBannedIndex = Math.floor(Math.random() * symbols.length);
 
-  console.log("Robot picked:", randomRobotPick);
-  console.log("Right pick:", randomRightPick);
-
   useGameStore.setState({
     robotPick: randomRobotPick,
     rightPick: randomRightPick,
