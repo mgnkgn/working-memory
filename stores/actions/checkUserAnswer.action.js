@@ -59,13 +59,6 @@ function checkUserAnswer(symbol) {
     return;
   }
 
-  // TODO: Implement voice pick logic if needed
-  // if (symbol.id === voicePick.id) {
-  //   console.log("wrong pick: voice selection banned");
-  //   useGameStore.setState({ mistakes: mistakes + 1 });
-  //   return;
-  // }
-
   return;
 }
 
