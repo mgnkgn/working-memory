@@ -1,9 +1,23 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { checkUserAnswer } from "../stores";
 
-const UserOption = ({ symbol }) => {
+const UserOption = ({ symbol, disabled = false, setRound }) => {
+  const onUserChoose = (symbol) => {
+    console.log("checking answer...");
+    checkUserAnswer(symbol);
+    console.log("setting new round...");
+    setRound();
+  };
+
   return (
-    <TouchableOpacity style={styles.symbolBlock}>
+    <TouchableOpacity
+      style={styles.symbolBlock}
+      disabled={disabled}
+      onPress={() => {
+        onUserChoose(symbol);
+      }}
+    >
       <Text>{symbol?.emoji}</Text>
     </TouchableOpacity>
   );
