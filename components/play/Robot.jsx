@@ -2,7 +2,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React from "react";
 import { StyleSheet, useColorScheme, View } from "react-native";
 import useGameStore from "../../stores/useGameStore";
-import UserOption from "../UserOption";
+import UserOption from "./UserOption";
 
 const Robot = () => {
   const { isRobotPicking, robotPick, wrongPick, rightPick } = useGameStore();
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     padding: 20,
     marginBottom: 100,
     alignSelf: "center",
-    minWidth: 250,
+    minWidth: 150,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",

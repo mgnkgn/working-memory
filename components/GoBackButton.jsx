@@ -24,7 +24,7 @@ export default function GoBackButton({ route }) {
 const styles = StyleSheet.create({
   button: {
     position: "absolute",
-    top: 40,
+    top: 70,
     left: 20,
     backgroundColor: "gray",
     paddingVertical: 10,

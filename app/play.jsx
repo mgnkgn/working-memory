@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#121212",
   },
   text: {
-    fontSize: 24,
+    fontSize: 12,
     fontWeight: "bold",
   },
 });

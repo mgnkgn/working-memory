@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   useColorScheme,
 } from "react-native";
-import { checkUserAnswer } from "../stores";
+import { checkUserAnswer } from "../../stores";
 
 const UserOption = ({ symbol, disabled = false, setRound }) => {
   const colorScheme = useColorScheme();
@@ -40,9 +40,8 @@ const UserOption = ({ symbol, disabled = false, setRound }) => {
 const styles = StyleSheet.create({
   symbolBlock: {
     width: "25%",
-    height: "15%",
-    minHeight: 200,
-    width: 200,
+    height: 100,
+    width: 120,
     borderRadius: 20,
     backgroundColor: "transparent",
     borderColor: "black",

@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import UserOption from "../UserOption";
+import UserOption from "./UserOption";
 import useGameStore from "../../stores/useGameStore";
 
 const Symbols = ({ setRound }) => {
