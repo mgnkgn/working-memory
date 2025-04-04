@@ -37,6 +37,12 @@ function checkUserAnswer(symbol) {
     return;
   }
 
+  if (!isRightPickInvalid && symbol.id !== rightPick.id) {
+    useGameStore.setState({ mistakes: mistakes + 1 });
+    triggerWrongPickEffect();
+    return;
+  }
+
   // Check if the pick is correct
   if (!isRightPickInvalid && symbol.id === rightPick.id) {
     useGameStore.setState({ corrects: corrects + 1 });

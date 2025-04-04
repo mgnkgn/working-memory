@@ -1,17 +1,19 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, useColorScheme } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import useGameStore from "../../stores/useGameStore";
 import UserOption from "../UserOption";
 
 const BannedSymbol = () => {
   const { symbols, bannedSymbolIndex } = useGameStore();
+  const colorScheme = useColorScheme();
+  const isDarkMode = colorScheme === "dark";
 
   return (
-    <View style={styles.bannedRow}>
+    <View style={[styles.bannedRow]}>
       <FontAwesome5
         name="ban"
         size={150}
-        color="gray"
+        color={isDarkMode ? "black" : "gray"}
         style={styles.bannedIcon}
       />
       <UserOption symbol={symbols[bannedSymbolIndex]} disabled />
@@ -33,6 +35,6 @@ const styles = StyleSheet.create({
   },
   bannedIcon: {
     position: "absolute",
-    zIndex: -1,
+    zIndex: 1,
   },
 });

@@ -1,8 +1,16 @@
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  useColorScheme,
+} from "react-native";
 import { checkUserAnswer } from "../stores";
 
 const UserOption = ({ symbol, disabled = false, setRound }) => {
+  const colorScheme = useColorScheme();
+  const isDarkMode = colorScheme === "dark";
+
   const onUserChoose = (symbol) => {
     checkUserAnswer(symbol);
     setRound();
@@ -10,13 +18,21 @@ const UserOption = ({ symbol, disabled = false, setRound }) => {
 
   return (
     <TouchableOpacity
-      style={styles.symbolBlock}
+      style={[
+        styles.symbolBlock,
+        isDarkMode ? styles.darkSymbolBlock : styles.lightSymbolBlock,
+      ]}
       disabled={disabled}
-      onPress={() => {
-        onUserChoose(symbol);
-      }}
+      onPress={() => onUserChoose(symbol)}
     >
-      <Text>{symbol?.emoji}</Text>
+      <Text
+        style={[
+          styles.symbolText,
+          isDarkMode ? styles.darkText : styles.lightText,
+        ]}
+      >
+        {symbol?.emoji}
+      </Text>
     </TouchableOpacity>
   );
 };
@@ -34,6 +50,25 @@ const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+  },
+  lightSymbolBlock: {
+    backgroundColor: "white",
+    borderColor: "black",
+  },
+  darkSymbolBlock: {
+    backgroundColor: "#e8e3d5",
+    borderColor: "#b0afac",
+  },
+  lightText: {
+    color: "black",
+    zIndex: 3,
+  },
+  darkText: {
+    color: "white",
+    zIndex: 3,
+  },
+  symbolText: {
+    fontSize: 70,
   },
 });
 

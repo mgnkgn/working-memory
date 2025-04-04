@@ -1,14 +1,16 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, useColorScheme, View } from "react-native";
 import useGameStore from "../../stores/useGameStore";
 import UserOption from "../UserOption";
 
 const Robot = () => {
   const { isRobotPicking, robotPick, wrongPick, rightPick } = useGameStore();
+  const colorScheme = useColorScheme();
+  const isDarkMode = colorScheme === "dark";
 
   return (
-    <View style={styles.computerRow}>
+    <View style={[styles.computerRow]}>
       <View style={styles.robotContainer}>
         {!isRobotPicking && <UserOption symbol={rightPick} disabled />}
       </View>
@@ -17,13 +19,15 @@ const Robot = () => {
           <MaterialCommunityIcons
             name="robot-excited"
             size={100}
-            color="black"
+            color={isDarkMode ? "white" : "black"}
           />
         ) : (
           <MaterialCommunityIcons
             name="robot"
             size={100}
-            color={`${isRobotPicking ? "black" : "transparent"}`}
+            color={
+              isRobotPicking ? (isDarkMode ? "white" : "black") : "transparent"
+            }
           />
         )}
       </View>

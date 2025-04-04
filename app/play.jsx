@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, useColorScheme } from "react-native";
 import { useFocusEffect } from "@react-navigation/native";
 import GoBackButton from "../components/GoBackButton";
 import useGameStore from "../stores/useGameStore";
@@ -13,9 +13,12 @@ import Score from "../components/play/Score";
 import Robot from "../components/play/Robot";
 import BannedSymbol from "../components/play/BannedSymbol";
 import Symbols from "../components/play/Symbols";
+import FinishScreen from "../components/FinishScreen";
 
 export default function PlayScreen() {
   const { wrongPick, timer, startTimer, stopTimer } = useGameStore();
+  const colorScheme = useColorScheme();
+  const isDarkMode = colorScheme === "dark";
 
   const setRound = async () => {
     setIsRobotPicking(true);
@@ -43,11 +46,16 @@ export default function PlayScreen() {
     }, [])
   );
 
+  if (timer === 0) {
+    return <FinishScreen />;
+  }
+
   return (
     <View
       style={[
         styles.container,
-        { backgroundColor: `${wrongPick ? "red" : "transparent"}` },
+        isDarkMode ? styles.darkContainer : styles.lightContainer,
+        { backgroundColor: wrongPick ? "red" : undefined },
       ]}
     >
       <GoBackButton />
@@ -73,6 +81,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     height: "100%",
+  },
+  lightContainer: {
+    backgroundColor: "white",
+  },
+  darkContainer: {
+    backgroundColor: "#121212",
   },
   text: {
     fontSize: 24,
