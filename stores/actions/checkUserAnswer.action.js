@@ -1,9 +1,10 @@
 import useGameStore from "../useGameStore";
 
-function checkUserAnswer(symbol) {
+function checkUserAnswer({ symbol, color }) {
   const {
     symbols,
     bannedSymbolIndex,
+    bannedColor,
     robotPick,
     rightPick,
     corrects,
@@ -14,6 +15,13 @@ function checkUserAnswer(symbol) {
 
   // Check if user picked the banned symbol
   if (indexOfSelectedSymbol === bannedSymbolIndex) {
+    useGameStore.setState({ mistakes: mistakes + 1 });
+    triggerWrongPickEffect();
+    return;
+  }
+
+  // Check if user picked the banned color
+  if (color === bannedColor) {
     useGameStore.setState({ mistakes: mistakes + 1 });
     triggerWrongPickEffect();
     return;

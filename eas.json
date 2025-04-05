@@ -5,8 +5,7 @@
   },
   "build": {
     "development": {
-      "developmentClient": true,
-      "distribution": "internal"
+      "developmentClient": true
     },
     "ios-simulator": {
       "extends": "development",
@@ -14,9 +13,7 @@
         "simulator": true
       }
     },
-    "preview": {
-      "distribution": "internal"
-    },
+    "preview": {},
     "production": {
       "autoIncrement": true
     }

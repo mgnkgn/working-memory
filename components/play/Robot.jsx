@@ -5,7 +5,8 @@ import useGameStore from "../../stores/useGameStore";
 import UserOption from "./UserOption";
 
 const Robot = () => {
-  const { isRobotPicking, robotPick, wrongPick, rightPick } = useGameStore();
+  const { isRobotPicking, robotPick, wrongPick, rightPick, bannedColor } =
+    useGameStore();
   const colorScheme = useColorScheme();
   const isDarkMode = colorScheme === "dark";
 
@@ -25,9 +26,7 @@ const Robot = () => {
           <MaterialCommunityIcons
             name="robot"
             size={100}
-            color={
-              isRobotPicking ? (isDarkMode ? "white" : "black") : "transparent"
-            }
+            color={isRobotPicking ? bannedColor : "transparent"}
           />
         )}
       </View>

@@ -4,7 +4,7 @@ import UserOption from "./UserOption";
 import useGameStore from "../../stores/useGameStore";
 
 const Symbols = ({ setRound }) => {
-  const { symbols, isRobotPicking } = useGameStore();
+  const { symbols, isRobotPicking, colors } = useGameStore();
 
   return (
     <View style={styles.container}>
@@ -14,6 +14,7 @@ const Symbols = ({ setRound }) => {
           symbol={symbols[0]}
           setRound={setRound}
           disabled={isRobotPicking}
+          containerStyle={{ backgroundColor: colors[0] }}
         />
       </View>
 
@@ -26,6 +27,7 @@ const Symbols = ({ setRound }) => {
               symbol={s}
               setRound={setRound}
               disabled={isRobotPicking}
+              containerStyle={{ backgroundColor: colors[index + 1] }}
             />
           );
         })}

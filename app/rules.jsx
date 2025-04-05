@@ -35,7 +35,7 @@ export default function RulesScreen() {
               isDarkMode ? styles.darkRuleTitle : styles.lightRuleTitle,
             ]}
           >
-            Working Memory Game
+            Focus Sprint Game
           </Text>
           <Text
             style={[
@@ -79,6 +79,15 @@ export default function RulesScreen() {
             ]}
           >
             3. What was shown earlier.
+          </Text>
+          <Text
+            style={[
+              styles.ruleText,
+              isDarkMode ? styles.darkRuleText : styles.lightRuleText,
+            ]}
+          >
+            4. Each round, the robot will pick a color. You must not pick the
+            color shown by the robot.
           </Text>
         </View>
 
@@ -143,6 +152,14 @@ export default function RulesScreen() {
           >
             - Picking an invalid symbol
           </Text>
+          <Text
+            style={[
+              styles.ruleText,
+              isDarkMode ? styles.darkRuleText : styles.lightRuleText,
+            ]}
+          >
+            - Picking an symbol with robot’s color
+          </Text>
         </View>
 
         <View style={styles.ruleSection}>
@@ -162,14 +179,6 @@ export default function RulesScreen() {
           >
             - Correct picks increase your score.
           </Text>
-          <Text
-            style={[
-              styles.ruleText,
-              isDarkMode ? styles.darkRuleText : styles.lightRuleText,
-            ]}
-          >
-            - The game becomes harder over time.
-          </Text>
         </View>
 
         <View style={styles.ruleSection}>
@@ -180,14 +189,6 @@ export default function RulesScreen() {
             ]}
           >
             ⚠️ Important:
-          </Text>
-          <Text
-            style={[
-              styles.ruleText,
-              isDarkMode ? styles.darkRuleText : styles.lightRuleText,
-            ]}
-          >
-            - Make too many mistakes and you lose the round.
           </Text>
           <Text
             style={[

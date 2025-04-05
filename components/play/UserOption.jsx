@@ -7,12 +7,14 @@ import {
 } from "react-native";
 import { checkUserAnswer } from "../../stores";
 
-const UserOption = ({ symbol, disabled = false, setRound }) => {
+const UserOption = ({ symbol, disabled = false, setRound, containerStyle }) => {
   const colorScheme = useColorScheme();
   const isDarkMode = colorScheme === "dark";
 
   const onUserChoose = (symbol) => {
-    checkUserAnswer(symbol);
+    console.log("containerStyle: ", containerStyle);
+    const pickColor = containerStyle.backgroundColor;
+    checkUserAnswer({ symbol, color: pickColor });
     setRound();
   };
 
@@ -21,6 +23,7 @@ const UserOption = ({ symbol, disabled = false, setRound }) => {
       style={[
         styles.symbolBlock,
         isDarkMode ? styles.darkSymbolBlock : styles.lightSymbolBlock,
+        containerStyle,
       ]}
       disabled={disabled}
       onPress={() => onUserChoose(symbol)}
@@ -51,11 +54,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   lightSymbolBlock: {
-    backgroundColor: "white",
+    // backgroundColor: "white",
     borderColor: "black",
   },
   darkSymbolBlock: {
-    backgroundColor: "#e8e3d5",
+    // backgroundColor: "#e8e3d5",
     borderColor: "#b0afac",
   },
   lightText: {

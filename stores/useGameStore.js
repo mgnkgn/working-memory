@@ -6,9 +6,12 @@ const useGameStore = create((set, get) => ({
   robotPick: {},
   rightPick: {},
   bannedSymbolIndex: 0,
+  colors: ["crimson", "lightseagreen", "indigo", "dodgerblue"],
+  bannedColor: "red",
   corrects: 0,
   mistakes: 0,
   wrongPick: false,
+  round: 0,
 
   timer: 60 * 5,
   timerInterval: null,

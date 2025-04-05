@@ -1,16 +1,16 @@
 {
   "expo": {
-    "name": "working-memory",
-    "slug": "working-memory",
+    "name": "focus-sprint",
+    "slug": "focus-sprint",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/working-memory.jpg",
+    "icon": "./assets/images/focussprint.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.mga.workingmemory",
+      "bundleIdentifier": "com.mga.focussprint",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
@@ -46,8 +46,10 @@
         "origin": false
       },
       "eas": {
-        "projectId": "5e9626e4-0b10-4cf1-99e6-ad1ee6db1ce7"
+        "projectId": "e4f37481-27c3-4b58-84a0-6739fa65dff3"
       }
-    }
+    },
+    "submit": {},
+    "owner": "gunesakgn9"
   }
 }

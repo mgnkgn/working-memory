@@ -31,7 +31,7 @@ export default function HomeScreen() {
             isDarkMode ? styles.darkText : styles.lightText,
           ]}
         >
-          Working Memory
+          Focus Sprint
         </Text>
       </View>
 
